@@ -1,0 +1,23 @@
+<?php
+return ['genaral_genaral_news'=>'Tin tức',
+        'create_genaral_news'=>'Thêm tin tức',
+        'list_genaral_news'=>'Danh sách tin tức',
+        'system'=>'Hệ thống',
+        'genaral_news_list_manager'=>'Quản lí danh sách tin tức',
+        'view_count'=>'Lượt xem',
+        'content'=>'Nội dung',
+        'turn_off'=>'Tắt',
+        'turn_on'=>'Bật',
+        'sort'=>'Sắp xếp',
+        'search'=>'Tìm kiếm',
+         'tittle'=>'Tiêu đề',
+         'created_at'=>'Ngày đăng',
+         'order'=>'Order',
+         'status'=>'Trạng thái',
+         'control'=>'Control',
+          'toll_search'=>'Công cụ tìm kiếm',
+         'enter_from'=>'Nhập từ',
+         'description'=>'Mô tả',
+         'image'=>'Hình ảnh',
+       ];
+

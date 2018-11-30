@@ -1,0 +1,486 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 8, 2018, 11:09:38 AM
+    Author     : quang
+*/
+
+.required:after{
+    content: ' *';
+    color: red;
+}
+.table-overflow{
+    overflow: auto;
+}
+.thumb-container .icon-close2 {
+    position: absolute;
+    right: -3px;
+    color: red;
+    cursor: pointer;
+}
+.navbar-header{
+    background: rgb(38, 50, 56);
+}
+.active, .menu:hover {
+  /*background-color: #666;*/
+  color: white;
+} 
+.header-right ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.header-right ul li {
+    float: right;
+    list-style-type: none;
+    margin-right: 10px;
+}
+.top{
+    margin-right: 10px;
+    float :right;
+    display: block;
+    text-align: center;
+    display: inline-block;
+}
+.bot{
+    display:block;
+}
+.dropdown-menu a{
+    display: block;
+}
+.heading-menu{
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.content {
+    margin-top: 15px;
+}
+#navMenus{
+    margin:0px;
+}
+#navMenus li a{
+    margin:0px;
+    padding-left: 20px;
+}
+.icon_delete{
+    color:red;
+}
+.active_a{
+    text-decoration: underline;
+}
+.add-answer{
+    cursor: pointer;
+}
+.answer-content{
+    display: none;
+}
+.black{
+    color: black;
+}
+.success{
+    background-color:red;
+}
+/* checked */
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 24px;
+  float: left;
+  margin-right: 15px;
+
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #19b333;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #19b333;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.product-count {
+    background: none repeat scroll 0 0 #ee5057;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    height: 20px;
+    padding-top: 2px;
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    top: -10px;
+    width: 20px;
+    overflow:all ;
+}
+/* end checkbox */
+.head-talbe{
+  height: 130px;
+  padding: 20px 20px;
+}
+.bill{
+  margin: 10px auto;
+  text-transform: uppercase;
+}
+
+
+
+
+
+/*                --            */
+ div.report .dashboard-title {
+    border-bottom: 4px solid #0B87C9;
+    margin-top: 5px;
+    padding-bottom: 3px;
+    display: inline-block;
+    color: #0B87C9;
+}
+
+div.report .dashboard-title i.fa {
+    padding-right: 8px;
+}
+ div.report .report-box {
+    color: #fff;
+    padding: 10px 0 10px 20px;
+    overflow: hidden;
+    min-height: 75px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+ div.report .report-box .infobox-icon {
+    float: left;
+    min-height: 100%;
+}
+
+ div.report .report-box .infobox-icon i.fa {
+    font-size: 30px;
+}
+
+ div.report .report-box .infobox-data {
+    width: 75%;
+    float: right;
+}
+
+ div.report .report-box .infobox-data h3.infobox-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+ div.report .report-box .infobox-data span.infobox-data-number {
+    font-size: 22px;
+    display: inline-block;
+}
+
+div.report .box-green {
+    background-color: #9ABC32;
+}
+ div.report .box-blue {
+    background-color: #6FB3E0;
+    font-size: 16px;
+    vertical-align: middle;
+    height: 80px;
+}
+
+ div.report .box-blue .infobox-data h3.infobox-title {
+    display: inline-block;
+}
+ div.report .box-blue .infobox-data span.infobox-data-number {
+    font-size: 16px;
+}
+
+ div.report .box-red {
+    background-color: #D53F40;
+}
+ div.report .box-orange {
+    background-color: #E8B110;
+}
+
+.widget , div.report .box-head{
+    margin: 25px 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0px 14px 10px -12px;
+}
+
+ .widget .widget-header {
+    color: #fff;
+    min-height: 30px;
+    padding: 10px 20px;
+}
+
+ .widget .widget-header h3.widget-title {
+    font-size: 18px;
+    margin: 0;
+    color: #000000;
+}
+
+ .widget .widget-header h3.widget-title i.fa {
+    padding-right: 10px;
+}
+
+.widget .widget-body {
+    padding: 10px 20px;
+    background-color: #ffff;
+}
+
+ .widget .widget-body [class*="col-"] {
+    font-size: 14px;
+    line-height: 168%;
+}
+.widget .widget-body .data {
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+ .widget.widget-blue {
+    border: 1px solid #6FB3E0;
+}
+
+ .widget.widget-blue .widget-header {
+    background-color: #6FB3E0;
+  }
+ .widget.widget-orange {
+    border: 1px solid #E8B110;
+}
+
+.widget.widget-orange .widget-header {
+    background-color: #E8B110;
+}
+
+ .widget.widget-green {
+    border: 1px solid #9ABC32;
+}
+
+ .widget.widget-green .widget-header {
+    background-color: #9ABC32;
+}
+
+#img_load{
+  width: 50px;
+  height: 50px;
+}
+/*thiet ke step*/
+
+.container {
+  width: 989px;
+  height: 150px;
+  margin: 15px auto; 
+  padding: 15px 0;
+}
+.progressbar {
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+}
+.progressbar li {
+  list-style-type: none;
+  width: 160px;
+  float: left;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: #7d7d7d;
+  z-index: 1;
+}
+.progressbar li i{
+  position: relative;
+  display: inline-block;
+  top: -35px;
+
+}
+.progressbar li span{
+  position: relative;
+  display: inline-block;
+  
+}
+.progressbar li:before {
+  width: 35px;
+  height: 35px;
+  content: '';
+  counter-increment: step;
+  line-height: 30px;
+  border: 2px solid #7d7d7d;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: white;
+}
+.progressbar li:after {
+  width: 100%;
+  height: 2px;
+  content: '';
+  position: absolute;
+  background-color: #7d7d7d;
+  top: 15px;
+  left: -40%;
+      z-index: -1;
+ 
+}
+.progressbar li:first-child:after {
+  content: none;
+}
+.progressbar li.active {
+  color: #006600;
+
+}
+.progressbar li.active:before {
+  border-color: #55b776;
+   background: #00FF33;
+}
+.progressbar li.active + li:after {
+  background-color: #55b776;
+}
+
+.progressbar li.cancel {
+  color: #8B0000;
+}
+.progressbar li.cancel:before {
+  border-color: red;
+  background: #F5A9A9;
+
+}
+.view-box{
+  height: 45px;
+  border-bottom: 1px solid #ded6d6;
+  padding-top: 10px;
+}
+a.head-table{
+  display: inline-block;
+  padding-left: 15px
+}
+.head-table{
+  height: 45px;
+  padding-top: 10px;
+}
+div.head-table{
+  border: 1px solid #ded6d6;
+}
+.modal.fade:not(.in).right .modal-dialog {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  left: 100px;
+}
+.modal-full-height.modal-right
+{
+  height: 100%;
+   left: 493px;
+   top: 22px;
+}
+.modal-full-height .modal-content{
+     height: 550px !important;
+    width: 80%;
+}
+/**/
+.group-img .remove-img{
+      position: absolute;
+    right: 40px;
+    color: white;
+    background: gray;
+    width: 12px;
+    height: 18px;
+    display: none;
+    cursor:pointer;
+
+}
+.group-img img:hover{
+    border: 1px dashed #ded6d6;
+}
+.content-right-product {
+
+    background-color: #fff;
+    border: 1px solid #e2e6e8;
+    overflow: auto;
+}
+.content-table {
+    padding-top: 20px;
+    padding-left: 0px;
+    background-color: white;
+}
+.text-report {
+    float: left;
+    width: calc(100% - 120px);
+    color: #333;
+}
+.text-head {
+    color: #0088FF;
+    padding: 7px;
+    font-size: 16px;
+    padding-left: 0px;
+}
+.img {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+}
+/**/
+.select-prd img{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.select-prd .select2-selection.select2-selection--single{
+  height: 60px;
+}
+/**/
+.group-img .file-caption-name{
+  display: none;
+}
+.group-img .fileinput-remove.fileinput-remove-button{
+  display: none;
+}
+/*.page-title{
+  padding: 0 5px;
+}*/
