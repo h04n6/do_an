@@ -40,7 +40,7 @@ class Database extends Conversation
     /** */
     public static function getProducts($type, $color, $size, $brand){
         if($type != '' || $size != '' || $color != '' || $brand != ''){
-            $res = Products::with('productDetail', 'productSize', 'productColor');
+            $res = Products::with('productDetail', 'productSize', 'productColor', 'ProductStore');
             if($type != ''){
                 $res = $res->where('id_type', '=', $type);
             }

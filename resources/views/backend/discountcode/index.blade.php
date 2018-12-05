@@ -45,7 +45,7 @@
                         <th>Mã giảm giá</th>
                         <th>Giá trị </th>
                         <th>Trạng thái</th>
-                         <th>Tên khách hàng</th>
+                        <th>Tên khách hàng</th>
                         <th>Ngày tạo</th>
 
                         <th>Hạn sử dụng</th>

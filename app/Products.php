@@ -15,7 +15,7 @@ class Products extends Model
     }
 
      public function ProductStore() {
-        return $this->belongsTo('App\ProductStore', 'id_product', 'id');
+        return $this->hasMany('App\ProductStore', 'id_product', 'id');
     }
     public function productDetail() {
         return $this->hasMany('App\ProductStore', 'id_product', 'id');

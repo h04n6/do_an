@@ -1,0 +1,129 @@
+.row{
+    margin: 20px 0px;    
+}
+.chat-frame{
+    border: solid 0.8px gray;
+    width: 100%;
+    height: 90vh;
+}
+.chat-frame-header{
+    width: 100%;
+    height: 8%;
+    background-color: lightblue;
+    border-bottom: 0.8px solid gray;
+}
+.chat-frame-body{
+    width: 100%;
+    height: 84%;
+    overflow-y: scroll;
+    position: relative;
+}
+.chat-frame-footer{
+    width: 100%;
+    height: 8%;
+    border-top: 0.8px solid gray;
+}
+.name, #msg-input{
+    margin: 10px 12px;
+    background-color: transparent;
+    border: none;
+    width: 85%;
+}
+.name{
+    border-bottom: solid 1px blue;
+    font-size: 16px;
+}
+.name:focus, #msg-input:focus{
+    outline: none;
+}
+.input-group{
+    margin: 8px 0px;
+    width: 150px;
+}
+.input-group-addon, span{
+    cursor: pointer;
+}
+.even{
+    padding-left: 0px;
+    padding-right: 5px;
+}
+.odd{
+    padding-left: 5px;
+    padding-right: 0px;
+}
+.chat {
+    list-style: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.chat li {
+    padding: 8px;
+    padding: 0.5rem;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    color: #000000;
+}
+.visitor {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+}
+.visitor .msg {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    border-top-right-radius: 2px;
+    background: #95c8da;
+}
+.chatbot .msg-chatbot {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+    border-top-left-radius: 2px;
+    background: #eceef0;
+}
+.msg, .msg-chatbot{
+    word-wrap: break-word;
+    min-width: 50px;
+    max-width: 80%;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.msg p {
+    margin: 0 0 0.2rem 0;
+}
+#btn-add-chatbot-answer{
+    float: right;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+}
+.visitor-chat{
+    outline: none;
+    border: none;
+    min-width: 10px;
+    max-width: 100%;
+    background: #95c8da;
+}
+.chatbot-answer{
+    min-width: 50px;
+    max-width: 100%;
+}
+.hidden{
+    display: none;
+}

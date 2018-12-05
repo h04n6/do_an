@@ -109,11 +109,18 @@ class SearchProductConversation extends Conversation
 
         $res = Database::getProducts($data['t'], $data['c'], $data['s'], $data['b']);
 
+        var_dump($res[0]->ProductStore);
+
         $this->say(
             // 'Mình đã tìm thấy ' . count($res) . ' sản phẩm phù hợp với yêu cầu của bạn. <br>' .
             // 'Dưới đây là sản phẩm nổi bật nhất trong số đó. <br>' .
             CustomElement::productForm($res[0]->image, $res[0]->name, $res[0]->price
         ));
+
+        // $this->say(
+        //     'Số lượng còn trong kho là:' .
+        //     $res[0]->product_store->number
+        // );
     }
 
     /** */

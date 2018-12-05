@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Conversations\OnboardingConversation;
 use App\Http\Conversations\AddressConversation;
 use App\Http\Conversations\SearchProductConversation;
+use App\ChatbotScript;
+use Illuminate\Support\Facades\Response;
 
 class BotManController extends Controller
 {
@@ -44,7 +46,27 @@ class BotManController extends Controller
 
     /** */
     public function askProduct($bot, $text){
-        
         $bot->startConversation(new SearchProductConversation($text));
+    }
+
+    /** */
+    public function index(){
+        return view('list_conversation')->with('scripts', ChatbotScript::all());
+        //return view('create_conversation')->with('scripts', ChatbotScript::all());
+    }
+
+    /** */
+    public function show($id){
+        $data = ChatbotScript::where('id', '=', $id)->first();
+        return Response::json($data);
+    }
+
+    /** */
+    public function saveScript(Request $request){
+        $cbs = new ChatbotScript();
+        $cbs->name = $request['name'];
+        $cbs->key_word = $request['key-word'];
+        $cbs->script = $request['script'];
+        $cbs->save();
     }
 }

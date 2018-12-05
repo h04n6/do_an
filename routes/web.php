@@ -18,6 +18,16 @@ Route::get('chatbot', function(){
     return view('web_widget');
 });
 
+Route::get('chatbot/create', function(){
+    return view('create_conversation');
+});
+
+Route::get('/chatbot/list', ['as' => 'chatbot.list', 'uses' => 'BotManController@index']);
+
+Route::get('/chatbot/list/{id}', ['as' => 'chatbot.show', 'uses' => 'BotManController@show']);
+
+Route::post('/chatbot/create/save', ['as' => 'chatbot.create.save', 'uses' => 'BotManController@saveScript']);
+
 /* AUTH */
 Route::get('/login', ['as' => 'login', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('/login', ['as' => 'postLogin', 'uses' => 'Auth\AuthController@postLogin']);
