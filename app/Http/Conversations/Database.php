@@ -8,8 +8,10 @@ use App\Color;
 use App\Size;
 use App\TypeProducts;
 use App\Manufacture;
-use App\Products;
 use App\ProductDetail;
+use App\Feedback;
+use App\Products;
+use App\ProductStore;
 
 class Database extends Conversation
 {
@@ -39,23 +41,30 @@ class Database extends Conversation
 
     /** */
     public static function getProducts($type, $color, $size, $brand){
-        if($type != '' || $size != '' || $color != '' || $brand != ''){
-            $res = Products::with('productDetail', 'productSize', 'productColor', 'ProductStore');
-            if($type != ''){
-                $res = $res->where('id_type', '=', $type);
-            }
-            if($color != ''){
-                $res = $res->where('id_color', '=', $color);
-            }
-            if($size != ''){
-                $res = $res->where('id_size', '=', $size);
-            }
-            if($brand != ''){
-                $res = $res->where('id_manufacturer', '=', $brand);
-            }
+            $res_detail = ProductDetail::with('size', 'color');
+            $res = Products::with('type')->where('id_type', '=', $type);
+            
+            // if($type != ''){
+            //     $res = $res->where('id_type', '=', $type);
+            // }
+            // if($color != ''){
+            //     $res_detail = $res_detail->where('id_color', '=', $color);
+            // }
+            // if($size != ''){
+            //     $res_detail = $res_detail->where('id_size', '=', $size);
+            // }
+            // if($brand != ''){
+            //     $res = $res->where('id_manufacturer', '=', $brand);
+            // }
 
-            return $res->get();
-        }    
+            $res_quantity = ProductStore::where('id_product', '=', ($res->first())->id_product);
+
+            return [
+                'detail' => $res_detail->get(),
+                'product' => $res->get(),
+                'quantity' => $res_quantity->get()
+            ];
+           
     }
 
     /**

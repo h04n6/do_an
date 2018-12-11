@@ -15,8 +15,14 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <script>
+        var url = '{{asset("/chatbot/list")}}';
+    </script>
+
     <link rel="stylesheet" href="{{asset('assets/css/create_conversation.css')}}">
     <script src="{{asset('assets/js/create_conversation.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('assets/css/list_conversation.css')}}">
+    <script src="{{asset('assets/js/list_conversation.js')}}"></script>
     
 </head>
 <body>
@@ -24,7 +30,10 @@
         {{ csrf_field() }}
         <div class="row">
             <div class="col-sm-4">
-                {{-- <h4>Danh sách kịch bản</h4>
+                <h4>Danh sách kịch bản</h4>
+            <label class="num-active">Số lượng kịch bản kích hoạt: {{$ac[0]->num_active}}</label>
+            <br>
+                <label class="num-inactive">Số lượng kịch bản chưa kích hoạt: {{$ic[0]->num_inactive}}</label>
                 <br>
                 <table class="table table-bordered">
                     <thead class="thead-light">
@@ -49,7 +58,7 @@
                             </tr>
                         @endforeach
                     </tbody>
-                </table> --}}
+                </table>
             </div>
             <div class="col-sm-5">
                 <div class="chat-frame box-shadow">
@@ -65,8 +74,9 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <input type="submit" class="btn btn-success" value="Lưu kịch bản">
-                <input type="button" class="btn btn-danger" value="Hủy">
+                <input type="button" class="btn btn-primary" id="btn-add-new-script" value="Tạo mới">
+                <input type="submit" class="btn btn-success" id="btn-update-script" value="Cập nhật kịch bản">
+                <input type="button" class="btn btn-danger hidden" id="btn-cancel-script" value="Hủy">
 
                 <br><br>
                 <label><i>* Nhấn chuột hai lần vào ô chat để xóa</i></label>
@@ -83,8 +93,11 @@
             </div>
         </div>
 
+        <input type="text" class="hidden" value="" id="enabled-script" name="enabled-script">
+        <input type="text" class="hidden" value="" id="id-script" name="id-script">
         <input type="text" class="hidden" value="" id="saved-key-word" name="key-word">
         <input type="text" class="hidden" value="" id="saved-script" name="script">
+        <input type="text" class="hidden" value="" id="btn-status" name="btn-status">
     </form>
 </body>
 </html>

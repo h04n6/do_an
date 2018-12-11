@@ -11,7 +11,11 @@ class ProductStore extends Model
         'id_product', 'id_store', 'number','number_tranf','status','number_error'
     ];
 
-      public function ProductStore() {
-        return $this->hasMany('App\Products', 'id_product', 'id');
+    //   public function ProductStore() {
+    //     return $this->hasMany('App\Products', 'id_product', 'id');
+    // }
+
+    public function productDetail(){
+        return $this->belongsTo('App\ProductDetail', 'id_product', 'id_product');
     }
 }

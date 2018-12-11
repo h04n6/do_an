@@ -3,6 +3,7 @@ $(document).ready(function(){
     save();
     delScript();
     scroll2Div();
+    setKeyWord();
 })
 
 /** */
@@ -67,7 +68,7 @@ function inputMessage(){
             createVisitorChat($(this).val());
             createChatBotChat('');
             $(this).val('');
-            addKeyWordContainer();
+            //addKeyWordContainer();
         }
     });
 }
@@ -136,13 +137,13 @@ function createKeyWordContainer(t){
 
 /** */
 function setKeyWord(){
-    $('.input-key-word').keydown(function(e){
+    $('#input-key-word').keydown(function(e){
         if(e.keyCode == 188){
-            createKeyWord($(this));
+            createKeyWord($(this).val());
         }
     });
 
-    $('.input-key-word').keyup(function(e){
+    $('#input-key-word').keyup(function(e){
         if(e.keyCode == 188){
             $(this).val('');
         }
@@ -150,51 +151,96 @@ function setKeyWord(){
 }
 
 /** */
-function createKeyWord(input_element){
-    var container = input_element.parent();
+// function createKeyWord(input_element){
+//     var container = input_element.parent();
 
-    container.append(
-        $($.parseHTML('<div>'))
-            .addClass('input-group mb-3')
-    );
+//     container.append(
+//         $($.parseHTML('<div>'))
+//             .addClass('input-group mb-3')
+//     );
 
-    // var last_input_group = container + ' .input-group:last';
-    // var last_input_group_addon = container + ' .input-group:last .input-group-addon:last';
+//     // var last_input_group = container + ' .input-group:last';
+//     // var last_input_group_addon = container + ' .input-group:last .input-group-addon:last';
 
-    var input_group = input_element.parent().find('.input-group:last');
+//     var input_group = input_element.parent().find('.input-group:last');
     
-    input_group.append(
-        $($.parseHTML('<input>'))
-            .attr('type', 'text')
-            .attr('disabled', 'disabled')
-            //.attr('readonly', 'readonly')
-            .attr('aria-describedby', 'basic-addon')
-            .val(input_element.val())
-            .addClass('key-word form-control')
-    );
+//     input_group.append(
+//         $($.parseHTML('<input>'))
+//             .attr('type', 'text')
+//             .attr('disabled', 'disabled')
+//             //.attr('readonly', 'readonly')
+//             .attr('aria-describedby', 'basic-addon')
+//             .val(input_element.val())
+//             .addClass('key-word form-control')
+//     );
 
-    input_group.append(
-        $($.parseHTML('<div>'))
-            .addClass('input-group-addon')
-    );
+//     input_group.append(
+//         $($.parseHTML('<div>'))
+//             .addClass('input-group-addon')
+//     );
 
-    var input_group_addon = input_element.parent().find('.input-group:last .input-group-addon');
+//     var input_group_addon = input_element.parent().find('.input-group:last .input-group-addon');
     
-    input_group_addon.append(
-        $($.parseHTML('<span>'))
-            .attr('id', 'basic-addon')
-            .addClass('input-group-text')
-            .html('x')
-    );
+//     input_group_addon.append(
+//         $($.parseHTML('<span>'))
+//             .attr('id', 'basic-addon')
+//             .addClass('input-group-text')
+//             .html('x')
+//     );
 
+//     delKeyWord();
+
+// }
+
+var index = 0;
+
+/** */
+function createKeyWord(text){
+    var container = index%2 == 0 ? 'div.even' : 'div.odd';
+
+    $($.parseHTML('<div>'))
+        .addClass('input-group mb-3')
+        .appendTo(container);
+    
+
+    var last_input_group = container + ' .input-group:last';
+    var last_input_group_addon = container + ' .input-group .input-group-addon:last';
+
+    // var input_group = input_element.parent().find('.input-group:last');
+    
+    $($.parseHTML('<input>'))
+        .attr('type', 'text')
+        .attr('disabled', 'disabled')
+        //.attr('readonly', 'readonly')
+        .attr('aria-describedby', 'basic-addon')
+        .val(text)
+        .addClass('key-word form-control')
+        .appendTo(last_input_group);
+
+    $($.parseHTML('<div>'))
+        .addClass('input-group-addon')
+        .appendTo(last_input_group);
+    
+
+    //var input_group_addon = input_element.parent().find('.input-group:last .input-group-addon');
+    
+    $($.parseHTML('<span>'))
+        .attr('id', 'basic-addon')
+        .addClass('input-group-text')
+        .html('x')
+        .appendTo(last_input_group_addon);
+    
     delKeyWord();
 
+    index++;
 }
 
 /** */
 function delKeyWord(){
     $('.input-group-addon').click(function(){
         $(this).closest('div.input-group').remove();
+        // alert('xin chào');
+        // $(this).parent().remove();
     });
 }
 
@@ -229,15 +275,16 @@ function save(){
         }
       });
 
+    //event submit
     $('#myForm').submit(function(){
         var saved_key_word = '';
         var saved_script = '';
 
+        // $('#btn-status').val('update');
+
         $('.key-word').each(function(){
             saved_key_word += $(this).val() + ',';
         });
-
-        saved_key_word = $('#input-key-word').val();
 
         $('.chat li').each(function(){
             $(this).attr('class') == 'visitor' ? 
@@ -247,6 +294,9 @@ function save(){
 
         $('#saved-key-word').val(delCommaAtTheEnd(saved_key_word));
         $('#saved-script').val(delCommaAtTheEnd(saved_script));
+        $('#id-script').val($('table tbody tr.choosed-row td.id').text());
+        $('table tbody tr.choosed-row td input.ckb').is(':checked') ? $('#enabled-script').val('1') : $('#enabled-script').val('0');
+        
 
         switch(''){
             case $('.name').val():
@@ -267,8 +317,35 @@ function save(){
     });
 }
 
+/** */
 function delCommaAtTheEnd($text){
     return $text.substring(0, $text.length - 1);
+}
+
+/** */
+function addNewScript(){
+    $('#btn-add-new-script').click(function(){
+        $('.chat-frame-body ul.chat').html('');
+        $('.name').val('');
+        $('.even').html('');
+        $('.odd').html('');
+        if($(this).val() == 'Tạo mới'){
+            $(this).val('Lưu');
+            $('#btn-cancel-script').removeClass('hidden');
+            $('#btn-status').val('save');
+        }else{
+            $(this).val('Tạo mới');
+            $('#btn-cancel-script').addClass('hidden');
+            $('#btn-update-script').click();
+            //$('#btn-status').val('create');
+        }
+    });
+
+    $('#btn-cancel-script').click(function(){
+        $('table tbody tr:first').click();
+        $('#btn-add-new-script').val('Tạo mới');
+        $(this).addClass('hidden');
+    })
 }
 
 /** */

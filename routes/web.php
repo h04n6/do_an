@@ -18,11 +18,13 @@ Route::get('chatbot', function(){
     return view('web_widget');
 });
 
-Route::get('chatbot/create', function(){
-    return view('create_conversation');
-});
+// Route::get('chatbot/create', function(){
+//     return view('create_conversation');
+// });
 
-Route::get('/chatbot/list', ['as' => 'chatbot.list', 'uses' => 'BotManController@index']);
+// Route::get('/chatbot/list', ['as' => 'chatbot.list', 'uses' => 'BotManController@index']);
+
+Route::get('/chatbot/create', ['as' => 'chatbot.list', 'uses' => 'BotManController@index']);
 
 Route::get('/chatbot/list/{id}', ['as' => 'chatbot.show', 'uses' => 'BotManController@show']);
 

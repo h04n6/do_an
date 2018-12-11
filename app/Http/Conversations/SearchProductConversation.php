@@ -107,20 +107,42 @@ class SearchProductConversation extends Conversation
         //         break;
         // }
 
-        $res = Database::getProducts($data['t'], $data['c'], $data['s'], $data['b']);
 
-        var_dump($res[0]->ProductStore);
+        $res = Database::getProducts($data['t'], $data['c'], $data['s'], $data['b']);
 
         $this->say(
             // 'Mình đã tìm thấy ' . count($res) . ' sản phẩm phù hợp với yêu cầu của bạn. <br>' .
             // 'Dưới đây là sản phẩm nổi bật nhất trong số đó. <br>' .
-            CustomElement::productForm($res[0]->image, $res[0]->name, $res[0]->price
+            CustomElement::productForm($res['product'][0]->image, $res['product'][0]->name, $res['product'][0]->price
         ));
 
-        // $this->say(
-        //     'Số lượng còn trong kho là:' .
-        //     $res[0]->product_store->number
-        // );
+        $this->say(
+            'Số lượng còn trong kho là:' .
+            $res['quantity'][0]->number
+        );
+
+        $this->say(
+            // 'Mình đã tìm thấy ' . count($res) . ' sản phẩm phù hợp với yêu cầu của bạn. <br>' .
+            // 'Dưới đây là sản phẩm nổi bật nhất trong số đó. <br>' .
+            CustomElement::productForm($res['product'][1]->image, $res['product'][$index]->name, $res['product'][1]->price
+        ));
+
+        $this->say(
+            'Số lượng còn trong kho là:'
+            //$res['quantity'][1]->number
+        );
+        // for($index = 0; $index < 5; $index++){
+        //     if(isset($res['product'][$index])){
+                
+        //     }
+
+            
+        // }
+
+        // $res = Database::getProducts($data['t'], $data['c'], $data['s'], $data['b']);
+        // var_dump($res[1]->name);
+
+        
     }
 
     /** */

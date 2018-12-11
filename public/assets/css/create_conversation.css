@@ -38,7 +38,6 @@
 }
 .input-group{
     margin: 8px 0px;
-    width: 150px;
 }
 .input-group-addon, span{
     cursor: pointer;
@@ -126,4 +125,8 @@
 }
 .hidden{
     display: none;
+}
+.col-sm-4{
+    height: 90vh;
+    overflow-y: scroll;
 }

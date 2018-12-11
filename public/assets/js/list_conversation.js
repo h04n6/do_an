@@ -1,6 +1,7 @@
 $(document).ready(function(){
     showScript();
     $('table tbody tr:first').click();
+    addNewScript();
 });
 
 function showScript(){
@@ -20,19 +21,27 @@ function showScript(){
         $.get(url + '/' + id, function(data){
             $('.name').val(data.name);
 
+            index = 0;
+            $('.even').html('');
+            $('.odd').html('');
+
             var scripts = (data.script).split(',');
             scripts.forEach(script => {
                 var text = script.split(':');
                 if(text[0] == '1'){
                     createVisitorChat(text[1]);
-                    addKeyWordContainer();
+                    //addKeyWordContainer();
                 }
                 else{
                     createChatBotChat(text[1]);
-                } 
+                }
             });
-            
-            //addKeyWordContainer();
+
+            var key_words = (data.key_word).split(',');
+            key_words.forEach(key_word => {
+                createKeyWord(key_word);
+                index++;
+            })
         })
     });
 }
